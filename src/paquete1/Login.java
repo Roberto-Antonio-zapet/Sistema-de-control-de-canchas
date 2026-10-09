@@ -6,6 +6,7 @@ package paquete1;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Antonio Zapet
@@ -17,6 +18,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(this);
         escalarImagenLabel(us, "/imagenes/user1.png");
     }
 
@@ -31,9 +33,9 @@ public class Login extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtCorreo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        txtPassword = new javax.swing.JPasswordField();
         us = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -46,24 +48,29 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(166, 173, 200));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setForeground(new java.awt.Color(135, 67, 21));
-        jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtCorreo.setBackground(new java.awt.Color(55, 99, 60));
+        txtCorreo.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
+        txtCorreo.setForeground(new java.awt.Color(255, 255, 255));
+        txtCorreo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtCorreoActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 178, 30));
-
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 178, 30));
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 178, 30));
 
         jButton1.setText("INICIAR SESIÓN");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 128, 30));
+
+        txtPassword.setBackground(new java.awt.Color(55, 99, 60));
+        txtPassword.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 180, 30));
 
         us.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user1.png"))); // NOI18N
         us.setToolTipText("");
@@ -95,13 +102,20 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_txtCorreoActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(txtCorreo.getText().equals("antonio@miumg.edu.gt") && txtPassword.getText().equals("antonio2003")){
+            SistemaDeOperaciones vSistema = new SistemaDeOperaciones();
+            dispose();
+            vSistema.setLocationRelativeTo(this);
+            vSistema.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "VERIFIQUE SUS CREDENCIALES");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,8 +175,8 @@ private void escalarImagenLabel(JLabel label, String rutaImagen) {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JLabel us;
     // End of variables declaration//GEN-END:variables
 }
