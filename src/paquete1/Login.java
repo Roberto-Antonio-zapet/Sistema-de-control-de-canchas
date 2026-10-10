@@ -7,6 +7,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Antonio Zapet
@@ -18,8 +19,10 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        this.setLocationRelativeTo(this);
+        this.setLocationRelativeTo(null);
         escalarImagenLabel(us, "/imagenes/user1.png");
+        txtCorreo.putClientProperty("JTextField.placeholderText", "Ingrese su correo");
+        txtPassword.putClientProperty("JTextField.placeholderText", "Ingrese su contraseña");
     }
 
     /**
@@ -32,7 +35,10 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
@@ -45,8 +51,23 @@ public class Login extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel3.setFont(new java.awt.Font("PMingLiU-ExtB", 1, 42)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("COMPLEJO DEPORTIVO \"LA 10\"");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 660, 60));
+
         jPanel1.setBackground(new java.awt.Color(166, 173, 200));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Contraseña");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 130, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Correo");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 130, -1));
 
         txtCorreo.setBackground(new java.awt.Color(55, 99, 60));
         txtCorreo.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
@@ -57,7 +78,7 @@ public class Login extends javax.swing.JFrame {
                 txtCorreoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 178, 30));
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 230, 30));
 
         jButton1.setText("INICIAR SESIÓN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +91,7 @@ public class Login extends javax.swing.JFrame {
         txtPassword.setBackground(new java.awt.Color(55, 99, 60));
         txtPassword.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 180, 30));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 230, 30));
 
         us.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user1.png"))); // NOI18N
         us.setToolTipText("");
@@ -145,6 +166,7 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
@@ -173,6 +195,9 @@ private void escalarImagenLabel(JLabel label, String rutaImagen) {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtCorreo;

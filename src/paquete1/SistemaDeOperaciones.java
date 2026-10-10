@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package paquete1;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import canchas.Canchas;
 
 /**
  *
@@ -15,6 +20,10 @@ public class SistemaDeOperaciones extends javax.swing.JFrame {
      */
     public SistemaDeOperaciones() {
         initComponents();
+        escalarImagenLabel(lblCancha, "/imagenes/cancha.jpg");
+        escalarImagenLabel(lblCliente, "/imagenes/logoCliente.png");
+        escalarImagenLabel(lblRegistrarCliente, "/imagenes/logoRegistrarCliente.png");
+        
     }
 
     /**
@@ -27,12 +36,41 @@ public class SistemaDeOperaciones extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
+        lblRegistrarCliente = new javax.swing.JLabel();
+        lblCliente = new javax.swing.JLabel();
+        lblCancha = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblRegistrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoRegistrarCliente.png"))); // NOI18N
+        jPanel3.add(lblRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 210, 200, 160));
+
+        lblCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoCliente.png"))); // NOI18N
+        jPanel3.add(lblCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 200, 160));
+
+        lblCancha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancha.jpg"))); // NOI18N
+        jPanel3.add(lblCancha, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 230, 150));
+
+        jButton3.setText("REGISTRAR CLIENTE");
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 400, 170, 40));
+
+        jButton2.setText("CLIENTES");
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 170, 40));
+
+        jButton1.setText("CANCHAS");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 170, 40));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 40)); // NOI18N
@@ -58,6 +96,11 @@ public class SistemaDeOperaciones extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Canchas vCanchas = new Canchas();
+        vCanchas.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,9 +137,30 @@ public class SistemaDeOperaciones extends javax.swing.JFrame {
         });
     }
 
+    private void escalarImagenLabel(JLabel label, String rutaImagen) {
+    // 1. Cargar la imagen desde el paquete de tu proyecto
+    ImageIcon iconOriginal = new ImageIcon(getClass().getResource(rutaImagen));
+    
+    // 2. Escalar la imagen al ancho y alto actual del JLabel
+    Image imagenEscalada = iconOriginal.getImage().getScaledInstance(
+        label.getWidth(), 
+        label.getHeight(), 
+        Image.SCALE_SMOOTH // Mantiene la máxima calidad
+    );
+    
+    // 3. Asignar la nueva imagen redimensionada al JLabel
+    label.setIcon(new ImageIcon(imagenEscalada));
+}
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblCancha;
+    private javax.swing.JLabel lblCliente;
+    private javax.swing.JLabel lblRegistrarCliente;
     // End of variables declaration//GEN-END:variables
 }
